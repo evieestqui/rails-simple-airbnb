@@ -1,0 +1,45 @@
+<div class='w-100 overflow-hidden' style='height: 400px'>
+  <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/1000x1000?access_token=pk.eyJ1IjoiZ2FicmkxOTM5IiwiYSI6ImNtNmkwM3E5eTAzaWMyaXM3enh2YnFuaGUifQ.NU1tM9ayjkwr1j1HQWAYOw' class='w-100' style='object-fit: cover;'>
+</div>
+
+<div class='container'>
+  <div class='row'>
+    <div class='col-8'>
+      <div class='bg-light p-4 mb-2'  style='margin-top: -4rem !important;'>
+        <h1><%= @flat.name %></h1>
+        <p><strong>Address:</strong> <%= @flat.address %></p>
+      </div>
+
+      <div class='bg-light p-4 mt-2'>
+        <h2>A bit more about this flat</h2>
+        <p><strong>Description:</strong> <%= @flat.description %></p>
+      </div>
+    </div>
+    <div class='col-4'>
+      <div class='bg-light p-4'  style='margin-top: -4rem !important;'>
+        <h2>Book appartment</h2>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">From</span>
+          <input type="date" class="form-control" placeholder="12/10/2017">
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">To</span>
+          <input type="date" class="form-control" placeholder="12/10/2017">
+        </div>
+
+        <button type="button" class="btn btn-success w-100">Book</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<p><strong>Price per night:</strong> $<%= @flat.price_per_night %></p>
+<p><strong>Guests:</strong> <%= @flat.number_of_guests %></p>
+
+<%= link_to "Edit", edit_flat_path(@flat), class: "btn btn-warning" %>
+<%= link_to "Delete", flat_path(@flat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<%= link_to "Back to Flats", flats_path, class: "btn btn-secondary" %>
